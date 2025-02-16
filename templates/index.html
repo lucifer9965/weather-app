@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Weather App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Agriculture Weather Prediction</h1>
+        <form method="POST" class="form-inline justify-content-center">
+            <input type="text" name="city" class="form-control mb-2 mr-2" placeholder="Enter city" required>
+            <button type="submit" class="btn btn-primary mb-2">Get Weather</button>
+        </form>
+
+        {% if message %}
+            <p class="text-danger text-center">{{ message }}</p>
+        {% elif city %}
+            <div class="text-center mt-4">
+                <h3>{{ city }} Weather</h3>
+                <p><strong>Temperature:</strong> {{ temperature }}°C</p>
+                <p><strong>Humidity:</strong> {{ humidity }}%</p>
+                <p><strong>Wind Speed:</strong> {{ wind_speed }} m/s</p>
+                <p><strong>Condition:</strong> {{ description }}</p>
+                <h4>Farming Advice:</h4>
+                <p>{{ advice }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
